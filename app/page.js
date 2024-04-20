@@ -31,13 +31,25 @@ export default function Home() {
       console.log(error);
     }
   };
+  const getProducts = async () => {
+    try {
+      const response = await axios.get("api/add_data");
+      // const data = await response.json();
+      console.log("getting now ",JSON.parse(response.data.message));
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
       <h1>Hello</h1>
       <input type="submit" value="insert" onClick={insert} />
       <br />
-      <input type="submit" value="get" onClick={get} />
+      <input type="submit" value="get sigle redis value" onClick={get} />
+      <br />
+      <input type="submit" value="Get products" onClick={getProducts} />
     </>
   );
 }
